@@ -7,7 +7,7 @@
       <nav class="header__content-nav">
         <router-link class="header__nav-link" to="/">Main Page</router-link>
         <router-link class="header__nav-link" to="/categories">Categories</router-link>
-        <router-link class="header__nav-link" to="/allproducts">All products</router-link>
+        <router-link class="header__nav-link" to="/all-products">All products</router-link>
         <router-link class="header__nav-link" to="/">All sales</router-link>
       </nav>
       <div class="header__content-card">

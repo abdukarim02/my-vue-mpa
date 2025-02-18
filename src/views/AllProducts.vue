@@ -74,39 +74,35 @@ const priceTo = ref(null);
 const discountedOnly = ref(false);
 const sortOption = ref("default");
 
-// Фильтрация товаров
 const filteredProducts = computed(() => {
     let result = [...products.value];
 
-    // Фильтр по цене
-    if (priceFrom.value !== null) {
+    // Фильтр по цене (учитываем только если от 100 и выше)
+    if (priceFrom.value !== null && priceFrom.value >= 100) {
         result = result.filter(product => product.price >= priceFrom.value);
     }
-    if (priceTo.value !== null) {
+    if (priceTo.value !== null && priceTo.value >= 100) {
         result = result.filter(product => product.price <= priceTo.value);
     }
 
     // Фильтр по скидке
-    if (discountedOnly.value) {
-        result = result.filter(product => product.sale && product.priceOld);
-    }
+    let discountFiltered = discountedOnly.value ? result.filter(product => product.sale && product.priceOld) : result;
 
     // Сортировка
+    let sortedProducts = [...discountFiltered];
     if (sortOption.value === "priceAsc") {
-        result.sort((a, b) => a.price - b.price);
+        sortedProducts.sort((a, b) => a.price - b.price);
     } else if (sortOption.value === "priceDesc") {
-        result.sort((a, b) => b.price - a.price);
+        sortedProducts.sort((a, b) => b.price - a.price);
     }
 
-    return result;
+    return sortedProducts;
 });
 
-// Отфильтрованные товары со скидкой
 const filteredSaleProducts = computed(() => {
     return filteredProducts.value.filter(product => product.sale && product.priceOld);
 });
 
-// Отфильтрованные обычные товары
 const filteredRegularProducts = computed(() => {
     return filteredProducts.value.filter(product => !product.sale || !product.priceOld);
 });

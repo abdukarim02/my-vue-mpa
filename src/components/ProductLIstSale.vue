@@ -1,5 +1,6 @@
 <template>
     <div class="product">
+        <router-link class="product__link" to="/products-card"></router-link>
         <div class="product__bg">
             <div class="product__bg-sale">{{sale}}</div>
             <img :src="imag" alt="product-bg" class="product__bg-img">
