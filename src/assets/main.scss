@@ -35,6 +35,9 @@ $font-family: "Montserrat", sans-serif;
   align-items: $ai;
   justify-content: $jc;
 }
+body {
+  position: relative;
+}
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -577,8 +580,42 @@ body {
   &__form-btn {
     width: 100%;
   }
+  &__messages-text {
+    @include stylefontz($font-family, 500, 20px, $black);
+    margin: 32px 0 64px;
+  }
 }
-
+.dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(40, 40, 40, 0.4);
+		&__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 12px;
+      padding: 32px;
+      width: 548px;
+      height: 236px;
+      background: $green;
+      @include stylcenter(flex, start, space-between);
+		}
+		&__content-info {
+      height: 100%;
+      @include stylcenter(flex, start, space-between);
+      flex-direction: column;
+		}
+		&__info-name {
+     @include stylefontz($font-family, 600, 40px,  $white);
+		}
+		&__info-text {
+      @include stylefontz($font-family, 500, 20px,  $white);
+		}
+}
 @media (max-width: 1024px) {
   .header {
     &__content-nav {

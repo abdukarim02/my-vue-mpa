@@ -72,6 +72,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
+body {
+  position: relative;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -806,6 +810,55 @@ body {
 }
 .basket__form-btn {
   width: 100%;
+}
+.basket__messages-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #282828;
+  margin: 32px 0 64px;
+}
+
+.dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(40, 40, 40, 0.4);
+}
+.dark__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  padding: 32px;
+  width: 548px;
+  height: 236px;
+  background: #393;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.dark__content-info {
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.dark__info-name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  color: #fff;
+}
+.dark__info-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
