@@ -87,7 +87,3 @@ const addToCart = () => {
   console.log("Added to cart:", { title, quantity: quantity.value });
 };
 </script>
-
-
-
-  

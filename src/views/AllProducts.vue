@@ -36,6 +36,7 @@
                     :price="product.price" 
                     :priceOld="product.priceOld"
                     :shortText="product.shortText"
+                      @add-to-cart="handleAddToCart"
                 />
                 <ProductLIst
                     v-for="(product, index) in filteredProducts.regular" 
@@ -44,6 +45,7 @@
                     :title="product.title" 
                     :price="product.price"
                     :shortText="product.shortText"
+                      @add-to-cart="handleAddToCart"
                 />
             </div>
         </div>
