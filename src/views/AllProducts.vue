@@ -27,46 +27,46 @@
             </div>
 
             <div class="sale__content-wrap">
-                <!-- Показываем только товары со скидкой -->
                 <ProductLIstSale 
-                    v-for="(product, index) in filteredSaleProducts" 
+                    v-for="(product, index) in filteredProducts.sale" 
                     :key="'sale-' + index"
                     :imag="product.imag" 
                     :sale="product.sale" 
                     :title="product.title" 
                     :price="product.price" 
                     :priceOld="product.priceOld"
+                    :shortText="product.shortText"
                 />
-                
-                <!-- Остальные товары без скидки -->
                 <ProductLIst
-                    v-for="(product, index) in filteredRegularProducts" 
+                    v-for="(product, index) in filteredProducts.regular" 
                     :key="'regular-' + index"
                     :imag="product.imag" 
                     :title="product.title" 
                     :price="product.price"
+                    :shortText="product.shortText"
                 />
             </div>
         </div>
     </section>
 </template>
+
 <script setup>
 import { ref, computed } from 'vue';
 import ProductLIstSale from '../components/ProductLIstSale.vue';
 import ProductLIst from '../components/ProductLIst.vue';
 
 const products = ref([
-    { imag: '/src/assets/product-1.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
-    { imag: '/src/assets/product-1.jpg', sale: 10, title: 'Modern lamp', price: 300, priceOld: 400 },
-    { imag: '/src/assets/product-1.jpg', title: 'Elegant chair', price: 700 },
-    { imag: '/src/assets/product-1.jpg', sale: 5, title: 'Stylish table', price: 450, priceOld: 500 },
-    { imag: '/src/assets/product-1.jpg', title: 'Minimalist sofa', price: 900 },
-    { imag: '/src/assets/product-1.jpg', sale: 20, title: 'Luxury carpet', price: 1200, priceOld: 1500 },
-    { imag: '/src/assets/product-1.jpg', title: 'Minimalist sofa', price: 1300 },
-    { imag: '/src/assets/product-1.jpg', title: 'Minimalist sofa', price: 600 },
-    { imag: '/src/assets/product-1.jpg', sale: 20, title: 'Luxury carpet', price: 1200, priceOld: 1500 },
-    { imag: '/src/assets/product-1.jpg', title: 'Minimalist sofa', price: 500 },
-    { imag: '/src/assets/product-1.jpg', title: 'Minimalist sofa', price: 400 }
+    { imag: '/src/assets/product-1.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-2.jpg', sale: 10, title: 'Modern lamp', price: 300, priceOld: 400, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-3.jpg', title: 'Elegant chair', price: 700, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-4.jpg', sale: 5, title: 'Stylish table', price: 450, priceOld: 500, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-5.jpg', title: 'Minimalist sofa', price: 900, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-6.jpg', sale: 20, title: 'Luxury carpet', price: 1200, priceOld: 1500, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-7.jpg', title: 'Minimalist sofa', price: 1300, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-8.jpg', title: 'Minimalist sofa', price: 600, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-9.jpg', sale: 20, title: 'Luxury carpet', price: 1200, priceOld: 1500, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-10.jpg', title: 'Minimalist sofa', price: 500, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' },
+    { imag: '/src/assets/product-11.jpg', title: 'Minimalist sofa', price: 400, shortText: 'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects. Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.' }
 ]);
 
 const priceFrom = ref(null);
@@ -77,34 +77,31 @@ const sortOption = ref("default");
 const filteredProducts = computed(() => {
     let result = [...products.value];
 
-    // Фильтр по цене (учитываем только если от 100 и выше)
-    if (priceFrom.value !== null && priceFrom.value >= 100) {
+    // Фильтр по цене
+    if (priceFrom.value !== null) {
         result = result.filter(product => product.price >= priceFrom.value);
     }
-    if (priceTo.value !== null && priceTo.value >= 100) {
+    if (priceTo.value !== null) {
         result = result.filter(product => product.price <= priceTo.value);
     }
 
     // Фильтр по скидке
-    let discountFiltered = discountedOnly.value ? result.filter(product => product.sale && product.priceOld) : result;
-
-    // Сортировка
-    let sortedProducts = [...discountFiltered];
-    if (sortOption.value === "priceAsc") {
-        sortedProducts.sort((a, b) => a.price - b.price);
-    } else if (sortOption.value === "priceDesc") {
-        sortedProducts.sort((a, b) => b.price - a.price);
+    if (discountedOnly.value) {
+        result = result.filter(product => product.sale && product.priceOld);
     }
 
-    return sortedProducts;
-});
+    // Сортировка
+    if (sortOption.value === "priceAsc") {
+        result.sort((a, b) => a.price - b.price);
+    } else if (sortOption.value === "priceDesc") {
+        result.sort((a, b) => b.price - a.price);
+    }
 
-const filteredSaleProducts = computed(() => {
-    return filteredProducts.value.filter(product => product.sale && product.priceOld);
-});
-
-const filteredRegularProducts = computed(() => {
-    return filteredProducts.value.filter(product => !product.sale || !product.priceOld);
+    return {
+        sale: result.filter(product => product.sale && product.priceOld),
+        regular: result.filter(product => !product.sale || !product.priceOld)
+    };
 });
 </script>
+
 

@@ -62,9 +62,9 @@ import ProductList from '../components/ProductLIstSale.vue';
 import CategoriesBlock from '../components/CategoriesBlock.vue';
 const products = [
     { imag: '/src/assets/product-1.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
-    { imag: '/src/assets/product-1.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
-    { imag: '/src/assets/product-1.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
-    { imag: '/src/assets/product-1.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
+    { imag: '/src/assets/product-2.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
+    { imag: '/src/assets/product-3.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
+    { imag: '/src/assets/product-4.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
 ];
 </script>
 <style setup>

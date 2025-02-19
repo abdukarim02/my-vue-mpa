@@ -6,7 +6,7 @@ nav,footer,header,aside{display: block;}
 html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
 input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;}
-button{cursor: pointer;}
+button{cursor: pointer; background: transparent;}
 button::-moz-focus-inner{padding:0;border:0;}
 a,a:visited{text-decoration: none;}
 a:hover{text-decoration: none;}
@@ -395,20 +395,19 @@ body {
     letter-spacing: 0.03em;
   }
   &__info-price {
-    width: 359px;
     margin: 32px 0;
     @include stylcenter(flex, flex-start, space-between);
   }
-  &__ptice-priceold {
+  &__price-old {
     @include stylefontz($font-family, 700, 64px, $black);
     line-height: 1.1;
   }
-  &__ptice-pricesale {
+  &__price-sale {
     @include stylefontz($font-family, 500, 40px, $grey);
     text-decoration: line-through;
     line-height: 1.3;
   }
-  &__ptice-sale {
+  &__sale {
     border-radius: 6px;
     padding: 4px 8px;
     background: $green;
@@ -452,11 +451,134 @@ body {
       line-height: 1.3;
     }
     button {
-      margin: 16px 0;
       @include stylefontz($font-family, 500, 16px, $black);
     }
   }
 }
+.basket {
+  margin: 40px 0 80px;
+  &__content-body {
+    @include stylcenter(flex, start, space-between);
+  }
+  &__body-card {
+    @include stylcenter(flex, start, space-between);
+    flex-direction: column;
+    gap: 16px;
+    width: 58%;
+  }
+  &__card {
+    width: 100%;
+    @include stylcenter(flex, start, space-between);
+    gap: 32px;
+    border: 1px solid $grey-divider;
+    border-radius: 12px;
+  }
+  &__card-bg {
+    width: 200px;
+    height: 180px;
+    border: 1px solid $grey-divider;
+    border-radius: 12px 0 0 12px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__info {
+    width: 80%;
+    padding: 32px 32px 32px 0px;
+    @include stylcenter(flex, start, space-between);
+  }
+  &__info-name {
+    @include stylefontz($font-family, 500, 20px, $black);
+    margin-bottom: 32px;
+  }
+  &__info-footer {
+    @include stylcenter(flex, center, space-between);
+    gap: 32px;
+  }
+  &__footer-button {
+    width: 200px;
+    height: 58px;
+    @include stylcenter(flex, center, space-between);
+    border-bottom: 1px solid $grey-divider;
+    border-top: 1px solid $grey-divider;
+    button {
+      border: 1px solid $grey-divider;
+      border-radius: 6px;
+      width: 58px;
+      height: 58px;
+      background: transparent;
+      border-bottom: none;
+      border-top: none;
+    }
+  }
+  &__footer-price {
+    @include stylcenter(flex, end, space-between);
+    gap: 16px;
+  }
+  &__price-old {
+    @include stylefontz($font-family, 600, 40px, $black);
+  }
+  &__price-sel {
+    @include stylefontz($font-family, 500, 20px, $grey);
+    text-decoration: line-through;
+  }
+  &__body-order {
+    border-radius: 12px;
+    width: 40%;
+    height: 582px;
+    padding: 32px;
+    @include stylcenter(flex, start, space-between);
+    flex-direction: column;
+    background: $light-grey;
+  }
+  &__order-content {
+    width: 100%;
+  }
+  &__content-name {
+    @include stylefontz($font-family, 700, 40px, $black);
+    margin-bottom: 24px;
+  }
+  &__fram-name {
+    @include stylefontz($font-family, 500, 40px, $grey);
+    line-height: 1.3;
+  }
+  &__fram-footer {
+    width: 100%;
+    @include stylcenter(flex, center, space-between);
+  }
+  &__footer-name {
+    @include stylefontz($font-family, 500, 40px, $grey);
+    line-height: 1.3;
+  }
+  &__footer-price {
+    @include stylefontz($font-family, 700, 64px, $black);
+    line-height: 1.1;
+  }
+  &__order-form {
+    width: 100%;
+    height: 50%;
+    @include stylcenter(flex, start, space-between);
+    flex-direction: column;
+  }
+  &__form-input {
+    width: 100%;
+    border: 1px solid $grey-divider;
+    border-radius: 6px;
+    padding: 16px 32px;
+    background: $white;
+    @include stylefontz($font-family, 500, 20px, $black);
+    &::placeholder {
+      @include stylefontz($font-family, 500, 20px, $grey);
+    }
+  }
+  &__form-btn {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1024px) {
   .header {
     &__content-nav {
@@ -469,6 +591,18 @@ body {
   .main {
     &__info-title {
       font-size: 85px;
+    }
+  }
+  .basket {
+    &__content-body {
+      flex-direction: column;
+      gap: 32px;
+    }
+    &__body-card {
+      width: 100%;
+    }
+    &__body-order {
+      width: 100%;
     }
   }
 }

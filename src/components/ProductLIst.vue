@@ -1,6 +1,17 @@
 <template>
     <div class="product">
-        <router-link class="product__link" to="/products-card"></router-link>
+        <router-link 
+            class="product__link" 
+            :to="{
+                path: '/products-card',
+                query: {
+                    imag,
+                    title,
+                    price,
+                    shortText
+                }
+            }">
+        </router-link>
         <div class="product__bg">
             <img :src="imag" alt="product-bg" class="product__bg-img">
         </div>
