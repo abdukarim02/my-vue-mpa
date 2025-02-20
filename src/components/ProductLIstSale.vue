@@ -5,7 +5,7 @@
             :to="{
                 path: '/products-card',
                 query: {
-                    imag,
+                    image,
                     title,
                     price,
                     priceOld,
@@ -16,7 +16,7 @@
         </router-link>
         <div class="product__bg">
             <div v-if="sale > 0" class="product__bg-sale">-{{ sale }}%</div>
-            <img :src="imag" alt="product-bg" class="product__bg-img">
+            <img :src="image" alt="product-bg" class="product__bg-img">
         </div>
         <div class="product__info">
             <p class="product__info-name">{{ title }}</p>
@@ -32,7 +32,7 @@
 import { computed } from 'vue';
 
 const props = defineProps({
-  imag: String,
+  image: String,
   title: String,
   price: Number,
   priceOld: Number,

@@ -44,14 +44,15 @@
             </div>
             
             <div class="sale__content-wrap">
-                <ProductList 
+                <ProductList :limit="4"
                     v-for="(product, index) in products" 
                     :key="index"
-                    :imag="product.imag" 
+                    :image="product.image" 
                     :sale="product.sale" 
                     :title="product.title" 
                     :price="product.price" 
                     :priceOld="product.priceOld" 
+                    :shortText="product.shortText"
                 />
             </div>
         </div>
@@ -61,10 +62,10 @@
 import ProductList from '../components/ProductLIstSale.vue';
 import CategoriesBlock from '../components/CategoriesBlock.vue';
 const products = [
-    { imag: '/src/assets/product-1.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
-    { imag: '/src/assets/product-2.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
-    { imag: '/src/assets/product-3.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
-    { imag: '/src/assets/product-4.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000 },
+    { image: '/src/assets/product-1.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000, shortText: 'High-quality pruner with ergonomic grip.' },
+    { image: '/src/assets/product-2.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000, shortText: 'High-quality pruner with ergonomic grip.' },
+    { image: '/src/assets/product-3.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000, shortText: 'High-quality pruner with ergonomic grip.' },
+    { image: '/src/assets/product-4.jpg', sale: 15, title: 'Decorative forged bridge', price: 500, priceOld: 1000, shortText: 'High-quality pruner with ergonomic grip.' },
 ];
 </script>
 <style setup>

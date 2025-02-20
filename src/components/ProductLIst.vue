@@ -5,7 +5,7 @@
             :to="{
                 path: '/products-card',
                 query: {
-                    imag,
+                    image,
                     title,
                     price,
                     shortText
@@ -13,7 +13,7 @@
             }">
         </router-link>
         <div class="product__bg">
-            <img :src="imag" alt="product-bg" class="product__bg-img">
+            <img :src="image" alt="product-bg" class="product__bg-img">
         </div>
         <div class="product__info">
             <p class="product__info-name">{{ title }}</p>
@@ -25,7 +25,7 @@
 </template>
 <script setup>
 defineProps({
-  imag: String,
+  image: String,
   title: String,
   price: Number,
 });
